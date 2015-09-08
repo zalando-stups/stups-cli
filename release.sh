@@ -20,7 +20,7 @@ git push
 
 python3 setup.py clean
 
-python3 setup.py sdist upload
+python3 setup.py sdist bdist_wheel upload
 
 git tag ${version}
 git push --tags
