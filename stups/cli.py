@@ -16,3 +16,8 @@ def main():
     click.secho('http://docs.stups.io', fg='blue', bold=True)
     click.secho(' GitHub Repos:  ', nl=False)
     click.secho('https://github.com/zalando-stups', fg='blue', bold=True)
+    click.secho('')
+
+    if click.confirm('Do you want to configure the STUPS CLI tools now?', default=True):
+        import stups_cli
+        stups_cli.config.configure()

@@ -1,4 +1,5 @@
 click
+stups-cli-support
 stups-mai
 stups-piu
 stups-senza

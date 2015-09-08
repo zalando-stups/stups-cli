@@ -20,6 +20,12 @@ Meta package to install all STUPS command line tools.
 
     $ sudo pip3 install --upgrade stups
 
+Run the "stups" wrapper script to configure all STUPS command line tools:
+
+.. code-block:: bash
+
+    $ stups
+
 
 Releasing
 =========
