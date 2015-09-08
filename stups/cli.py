@@ -1,4 +1,5 @@
 import click
+import sys
 
 
 def main():
@@ -11,13 +12,14 @@ def main():
  STUPS - To Unleash Penguin Swarms
 ''', bold=True)
     click.secho(' Homepage:      ', nl=False)
-    click.secho('http://stups.io', fg='blue', bold=True)
+    click.secho('https://stups.io', fg='blue', bold=True)
     click.secho(' Documentation: ', nl=False)
-    click.secho('http://docs.stups.io', fg='blue', bold=True)
+    click.secho('https://docs.stups.io', fg='blue', bold=True)
     click.secho(' GitHub Repos:  ', nl=False)
     click.secho('https://github.com/zalando-stups', fg='blue', bold=True)
     click.secho('')
 
-    if click.confirm('Do you want to configure the STUPS CLI tools now?', default=True):
+    do_configure = len(sys.argv) > 1 and 'configure'.startswith(sys.argv[1])
+    if do_configure or click.confirm('Do you want to configure the STUPS CLI tools now?', default=True):
         import stups_cli.config
         stups_cli.config.configure()
