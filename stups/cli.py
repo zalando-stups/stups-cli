@@ -22,4 +22,7 @@ def main():
     do_configure = len(sys.argv) > 1 and 'configure'.startswith(sys.argv[1])
     if do_configure or click.confirm('Do you want to configure the STUPS CLI tools now?', default=True):
         import stups_cli.config
-        stups_cli.config.configure()
+        domain = None
+        if len(sys.argv) > 2:
+            domain = sys.argv[2]
+        stups_cli.config.configure(domain)
