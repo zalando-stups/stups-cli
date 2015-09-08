@@ -19,5 +19,5 @@ def main():
     click.secho('')
 
     if click.confirm('Do you want to configure the STUPS CLI tools now?', default=True):
-        import stups_cli
+        import stups_cli.config
         stups_cli.config.configure()
