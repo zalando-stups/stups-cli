@@ -61,14 +61,11 @@ def read(fname):
 
 
 def setup_package():
-    # Some helper variables
-    version = os.getenv('GO_PIPELINE_LABEL', VERSION)
-
     install_reqs = get_install_requirements('requirements.txt')
 
     setup(
         name=NAME,
-        version=version,
+        version=VERSION,
         url=URL,
         description=DESCRIPTION,
         author=AUTHOR,

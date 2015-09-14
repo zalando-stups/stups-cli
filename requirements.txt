@@ -5,3 +5,4 @@ stups-piu
 stups-senza
 stups-zign
 stups-pierone
+stups-fullstop
