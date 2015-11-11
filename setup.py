@@ -7,6 +7,7 @@ import inspect
 
 import setuptools
 from setuptools import setup
+from setuptools.command.test import test as TestCommand
 
 if sys.version_info < (3, 4, 0):
     sys.stderr.write('FATAL: STUPS eeds to be run with Python 3.4+\n')
@@ -51,6 +52,24 @@ CLASSIFIERS = [
 CONSOLE_SCRIPTS = ['stups = stups.cli:main']
 
 
+class PyTest(TestCommand):
+
+    def initialize_options(self):
+        TestCommand.initialize_options(self)
+        self.cov = None
+        self.pytest_args = ['--cov', 'stups', '--cov-report', 'term-missing']
+
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+
+    def run_tests(self):
+        import pytest
+        errno = pytest.main(self.pytest_args)
+        sys.exit(errno)
+
+
 def get_install_requirements(path):
     content = open(os.path.join(__location__, path)).read()
     return [req for req in content.split('\\n') if req != '']
@@ -74,9 +93,10 @@ def setup_package():
         keywords='stups cloud aws account cloud formation mai piu senza zign pierone',
         long_description=read('README.rst'),
         classifiers=CLASSIFIERS,
-        test_suite='tests',
+        cmdclass={'test': PyTest},
         packages=setuptools.find_packages(exclude=['tests', 'tests.*']),
         install_requires=install_reqs,
+        tests_require=['pytest-cov', 'pytest'],
         setup_requires=['flake8'],
         entry_points={'console_scripts': CONSOLE_SCRIPTS},
     )
