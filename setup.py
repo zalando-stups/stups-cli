@@ -64,8 +64,6 @@ class PyTest(TestCommand):
 
     def finalize_options(self):
         TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
         if self.cov_html:
             self.pytest_args.extend(['--cov-report', 'html'])
 
@@ -99,6 +97,7 @@ def setup_package():
         long_description=read('README.rst'),
         classifiers=CLASSIFIERS,
         cmdclass={'test': PyTest},
+        test_suite='tests',
         packages=setuptools.find_packages(exclude=['tests', 'tests.*']),
         install_requires=install_reqs,
         tests_require=['pytest-cov', 'pytest'],
