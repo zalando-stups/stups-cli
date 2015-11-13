@@ -6,3 +6,4 @@ stups-senza
 stups-zign
 stups-pierone
 stups-fullstop
+stups-kio
