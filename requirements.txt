@@ -1,12 +1,11 @@
 click
 stups-cli-support>=1.1.15
-stups-mai
 stups-piu
-stups-senza>=2.1.64
-stups-zign>=1.1.26
+stups-senza>=2.1.66
+stups-zign>=1.1.28
 stups-pierone
 stups-fullstop
 stups-kio
 zalando-aws-cli>=1.1.4
-zalando-kubectl>=0.21
-zalando-deploy-cli>=0.18
+zalando-kubectl>=1.6.0
+zalando-deploy-cli>=0.22
