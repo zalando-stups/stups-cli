@@ -7,4 +7,4 @@ stups-pierone>=1.1.31
 stups-fullstop>=1.1.31
 stups-kio>=0.1.20
 zalando-aws-cli>=1.2.4.22
-zalando-kubectl>=1.9.3.39
+zalando-kubectl>=1.9.3.43
